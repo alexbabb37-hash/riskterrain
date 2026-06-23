@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiskTerrain — Spatial Risk Intelligence</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1a1a2e;
+            background: #ffffff;
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a2e;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #2563eb;
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .nav-cta {
+            background: #2563eb;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            padding: 100px 60px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.3);
+            border: 1px solid rgba(37, 99, 235, 0.5);
+            color: #93c5fd;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover { background: #1d4ed8; }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* STATS BAR */
+        .stats {
+            background: #f8fafc;
+            padding: 40px 60px;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #2563eb;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        /* HOW IT WORKS */
+        .section {
+            padding: 80px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-sub {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 48px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .step {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 32px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .step h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* WHO IT'S FOR */
+        .for-section {
+            background: #f8fafc;
+            padding: 80px 60px;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .for-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* SCORE EXAMPLE */
+        .score-section {
+            padding: 80px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .score-demo {
+            background: #1a1a2e;
+            border-radius: 16px;
+            padding: 48px;
+            color: white;
+            margin-top: 48px;
+        }
+
+        .score-demo h3 {
+            font-size: 14px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .score-demo h4 {
+            font-size: 20px;
+            margin-bottom: 32px;
+            color: white;
+        }
+
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .score-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .score-item-label {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+
+        .score-item-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ef4444;
+        }
+
+        .score-item-value.low { color: #22c55e; }
+        .score-item-value.mod { color: #f59e0b; }
+
+        .score-item-risk {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        .overall-score {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .overall-label { color: #94a3b8; font-size: 14px; }
+        .overall-value { font-size: 48px; font-weight: 800; color: #ef4444; }
+        .overall-tag {
+            background: #ef4444;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a2e, #0f3460);
+            padding: 100px 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0f172a;
+            color: #64748b;
+            padding: 32px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 16px 20px; }
+            .hero { padding: 60px 20px; }
+            .hero h1 { font-size: 36px; }
+            .steps { grid-template-columns: 1fr; }
+            .cards { grid-template-columns: 1fr; }
+            .score-grid { grid-template-columns: 1fr; }
+            .stats { gap: 32px; padding: 32px 20px; }
+            .section { padding: 60px 20px; }
+            .for-section { padding: 60px 20px; }
+            footer { flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">Risk<span>Terrain</span>™</div>
+    <div class="nav-links">
+        <a href="#how">How It Works</a>
+        <a href="#who">Who It's For</a>
+        <a href="mailto:alexbabb37@gmail.com" class="nav-cta">Request a Demo</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-badge">Spatial Risk Intelligence</div>
+    <h1>Know the risk before<br><span>you open the doors.</span></h1>
+    <p>RiskTerrain generates instant Retail Safety Scores for any location — so you can make smarter security decisions, faster.</p>
+    <div class="hero-buttons">
+        <a href="mailto:alexbabb37@gmail.com" class="btn-primary">Request a Demo</a>
+        <a href="#how" class="btn-secondary">See How It Works</a>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+    <div class="stat">
+        <div class="stat-number">458,000+</div>
+        <div class="stat-label">Crime incidents analyzed</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Crime categories scored</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">30s</div>
+        <div class="stat-label">To generate a full report</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">100</div>
+        <div class="stat-label">Point scoring scale</div>
+    </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+    <div class="section-label">How It Works</div>
+    <h2>From address to report<br>in seconds.</h2>
+    <p class="section-sub">No consultants. No site visits required for a first assessment. Just type an address and get an instant, data-driven risk report.</p>
+    <div class="steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Enter a location</h3>
+            <p>Type any Toronto store or property address. RiskTerrain geocodes it instantly and pulls all relevant crime data within the surrounding area.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Get your score</h3>
+            <p>Receive an overall Retail Safety Score out of 100, plus sub-scores for Break & Enter, Robbery, Assault, and Auto Theft — each with a risk level and incident count.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Download your report</h3>
+            <p>Get a professional PDF report with an executive summary, key risk drivers, site review checklist, priority CPTED strategies, and tailored recommendations.</p>
+        </div>
+    </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="for-section" id="who">
+    <div class="for-inner">
+        <div class="section-label">Who It's For</div>
+        <h2>Built for the people who<br>make security decisions.</h2>
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">🏪</div>
+                <h3>Retail Chains</h3>
+                <p>Score and compare risk across your entire store portfolio. Identify which locations need immediate security investment and which are performing well.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏢</div>
+                <h3>Property Developers</h3>
+                <p>Understand the crime profile of any site before you build. Incorporate CPTED principles from day one rather than retrofitting security after problems emerge.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔒</div>
+                <h3>Security Consultants</h3>
+                <p>Augment your site assessments with data-driven risk scoring. Use RiskTerrain as a first-pass screening tool before committing to a full physical audit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SCORE EXAMPLE -->
+<section class="score-section">
+    <div class="section-label">Sample Report</div>
+    <h2>What a Retail Safety<br>Score looks like.</h2>
+    <p class="section-sub">Every report includes an overall score, crime-type sub-scores, nearby incident counts, and tailored recommendations.</p>
+
+    <div class="score-demo">
+        <h3>Sample Location</h3>
+        <h4>500 Yonge St, Toronto, Ontario</h4>
+
+        <div class="overall-score">
+            <div>
+                <div class="overall-label">Overall Retail Safety Score</div>
+                <div class="overall-value">92.2</div>
+                <div class="overall-label">out of 100</div>
+            </div>
+            <div class="overall-tag">🔴 Critical Risk</div>
+        </div>
+
+        <div class="score-grid">
+            <div class="score-item">
+                <div class="score-item-label">Break & Enter</div>
+                <div class="score-item-value">100/100</div>
+                <div class="score-item-risk">🔴 Critical — 1,219 nearby incidents</div>
+            </div>
+            <div class="score-item">
+                <div class="score-item-label">Robbery</div>
+                <div class="score-item-value">100/100</div>
+                <div class="score-item-risk">🔴 Critical — 771 nearby incidents</div>
+            </div>
+            <div class="score-item">
+                <div class="score-item-label">Assault</div>
+                <div class="score-item-value">100/100</div>
+                <div class="score-item-risk">🔴 Critical — 4,701 nearby incidents</div>
+            </div>
+            <div class="score-item">
+                <div class="score-item-label">Auto Theft</div>
+                <div class="score-item-value low">22.3/100</div>
+                <div class="score-item-risk">🟢 Low — 248 nearby incidents</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <h2>Ready to see RiskTerrain<br>in action?</h2>
+    <p>Request a live demo and we'll score any location you choose — in real time.</p>
+    <a href="mailto:alexbabb37@gmail.com" class="btn-primary" style="font-size:18px; padding: 18px 40px;">Request a Demo</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div>RiskTerrain™ — Spatial Risk Intelligence</div>
+    <div>Built by Alex Babb · Criminal Justice, University of Guelph · alexbabb37@gmail.com</div>
+</footer>
+
+</body>
+</html>
