@@ -236,7 +236,8 @@
             font-size: 15px;
         }
 
-        /* WHO IT'S FOR */
+        
+	/* WHO IT'S FOR */
         .for-section {
             background: #f8fafc;
             padding: 80px 60px;
@@ -366,7 +367,55 @@
             font-weight: 600;
         }
 
-        /* CTA */
+        /* REPORT PREVIEW */
+
+	.report-preview{
+    	    display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:70px;
+            margin-top:60px;
+	}
+
+	.report-text{
+    	   flex:1;
+	}
+
+	.report-text h3{
+    	   font-size:28px;
+           margin-bottom:22px;
+	}
+
+	.report-text ul{
+           list-style:none;
+           padding:0;
+           margin:0 0 35px;
+	}
+
+	.report-text li{
+    	   font-size:18px;
+           color:#475569;
+           margin-bottom:16px;
+	}
+
+	.report-image{
+    	   flex:1;
+           text-align:center;
+	}
+
+	.report-image img{
+           width:100%;
+           max-width:520px;
+           border-radius:18px;
+           box-shadow:0 25px 70px rgba(0,0,0,.18);
+           transition:.35s;
+	}
+
+	.report-image img:hover{
+           transform:translateY(-8px) scale(1.02);
+	}
+
+	/* CTA */
         .cta-section {
             background: linear-gradient(135deg, #1a1a2e, #0f3460);
             padding: 100px 60px;
@@ -478,6 +527,47 @@
             <p>Get a professional PDF report with an executive summary, key risk drivers, priority vulnerability areas, recommended CPTED interventions, and clear next steps.</p>
         </div>
     </div>
+</section>
+
+<!-- REPORT PREVIEW -->
+<section class="section">
+
+    <div class="section-label">Professional Reports</div>
+
+    <h2>Turn raw crime data into<br>actionable decisions.</h2>
+
+    <p class="section-sub">
+        Every assessment generates a branded Retail Safety Risk Assessment in seconds.
+        Reports include an executive summary, crime breakdowns, risk scores,
+        priority vulnerabilities, and CPTED recommendations.
+    </p>
+
+    <div class="report-preview">
+
+        <div class="report-text">
+
+            <h3>Included in every report</h3>
+
+            <ul>
+                <li>✓ Executive Summary</li>
+                <li>✓ Overall Retail Safety Score</li>
+                <li>✓ Crime Breakdown</li>
+                <li>✓ CPTED Recommendations</li>
+                <li>✓ Professional PDF Export</li>
+            </ul>
+
+            <a href="mailto:alexbabb37@gmail.com" class="btn-primary">
+                Request Full Sample
+            </a>
+
+        </div>
+
+        <div class="report-image">
+            <img src="report_preview.png" alt="Report Preview">
+        </div>
+
+    </div>
+
 </section>
 
 <!-- WHO IT'S FOR -->
