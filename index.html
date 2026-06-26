@@ -236,7 +236,84 @@
             font-size: 15px;
         }
 
-        
+	/* WHY RISKTERRAIN */
+	.problem-grid {
+   	    display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+	}
+
+	.problem-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px;
+	}
+
+	.problem-card h3 {
+    	    font-size: 22px;
+    	    margin-bottom: 16px;
+	}
+
+	.problem-card p {
+    	    color: #64748b;
+    	    line-height: 1.7;
+    	    font-size: 16px;
+	}
+
+	.problem-card ul {
+    	    list-style: none;
+   	    padding: 0;
+   	    margin-top: 18px;
+	}
+
+	.problem-card li {
+           color: #475569;
+    	   margin-bottom: 12px;
+    	   font-size: 16px;
+	}
+
+       /* DATA & METHODOLOGY */
+
+	.data-section{
+           background:#f8fafc;
+    	   padding:80px 60px;
+    	   border-top:1px solid #e2e8f0;
+    	   border-bottom:1px solid #e2e8f0;
+	}
+
+	.data-inner{
+    	   max-width:1100px;
+    	   margin:0 auto;
+	}
+
+	.data-grid{
+    	   display:grid;
+    	   grid-template-columns:repeat(3,1fr);
+    	   gap:24px;
+    	   margin-top:50px;
+	}
+
+	.data-card{
+    	   background:white;
+    	   border:1px solid #e2e8f0;
+    	   border-radius:14px;
+    	   padding:28px;
+    	   box-shadow:0 2px 8px rgba(0,0,0,.04);
+	}
+
+	.data-card h3{
+    	   font-size:20px;
+    	   margin-bottom:14px;
+	}
+
+	.data-card p{
+    	   color:#64748b;
+    	   line-height:1.7;
+    	   font-size:15px;
+	}
+	
 	/* WHO IT'S FOR */
         .for-section {
             background: #f8fafc;
@@ -466,7 +543,9 @@
 <nav>
     <div class="logo">Risk<span>Terrain</span>™</div>
     <div class="nav-links">
-        <a href="#how">How It Works</a>
+        <a href="#why">Why RiskTerrain</a>
+	<a href="#how">How It Works</a>
+	<a href="#data">Data</a>
         <a href="#who">Who It's For</a>
         <a href="mailto:alexbabb37@gmail.com" class="nav-cta">Request a Demo</a>
     </div>
@@ -478,7 +557,7 @@
     <div class="hero-subtitle">AI-Assisted CPTED Analytics</div>
     <div class="hero-badge">Spatial Risk Intelligence</div>
     <h1>Know the risk before<br><span>you open the doors.</span></h1>
-    <p>RiskTerrain compares locations, scores retail risk, and generates CPTED-informed safety reports using crime and environmental data.</p>    
+    <p>Organizations with multiple locations struggle to decide which sites need security attention first. RiskTerrain simplifies that decision by turning crime data into explainable risk rankings, CPTED-informed recommendations, and professional reports.</p>    
     <div class="hero-buttons">
         <a href="mailto:alexbabb37@gmail.com" class="btn-primary">Request a Demo</a>
         <a href="#how" class="btn-secondary">See How It Works</a>
@@ -508,23 +587,63 @@
 <!-- HOW IT WORKS -->
 <section class="section" id="how">
     <div class="section-label">How It Works</div>
-    <h2>From address to report<br>in seconds.</h2>
-    <p class="section-sub">Designed to support faster first-pass risk screening and better-informed site security decisions. Type an address and get a clear, data driven risk report.</p>
+    <h2>Prioritize locations, then take action.</h2>
+    <p class="section-sub">Designed to help organizations prioritize which locations need security attention first. Enter a location or upload multiple sites to generate explainable risk scores and professional reports.</p>
+</p>
     <div class="steps">
         <div class="step">
             <div class="step-number">1</div>
-            <h3>Enter a location</h3>
-            <p>Type any Toronto store or property address. RiskTerrain geocodes it instantly and pulls all relevant crime data within the surrounding area.</p>
+            <h3>Enter one or more locations</h3>
+            <p>Enter a Toronto address or upload multiple locations. RiskTerrain retrieves nearby crime data and begins analyzing each site.</p>
         </div>
         <div class="step">
             <div class="step-number">2</div>
-            <h3>Get your score</h3>
-            <p>Receive an overall Retail Safety Score out of 100, plus sub-scores for Theft Over $5000, Break & Enter, Robbery, Assault, and Auto Theft — each with a risk level and incident count.</p>
+            <h3>Prioritize risk</h3>
+            <p>Receive an explainable Retail Safety Score, crime breakdowns, and key risk drivers to quickly identify which locations deserve further attention.</p>
         </div>
         <div class="step">
             <div class="step-number">3</div>
-            <h3>Download your report</h3>
-            <p>Get a professional PDF report with an executive summary, key risk drivers, priority vulnerability areas, recommended CPTED interventions, and clear next steps.</p>
+            <h3>Generate a decision-ready report</h3>
+            <p>Export a professional report summarizing risk, supporting data, and CPTED-informed recommendations to support security planning and stakeholder communication.</p>
+        </div>
+    </div>
+</section>
+
+<!-- WHY RISKTERRAIN -->
+<section class="section" id="why">
+    <div class="section-label">Why RiskTerrain</div>
+
+    <h2>Security teams need to know<br>where to act first.</h2>
+
+    <p class="section-sub">
+        Organizations often manage many stores, properties, or facilities, but security time and budgets are limited. RiskTerrain helps turn raw crime data into a clear first-pass priority list.
+    </p>
+
+    <div class="problem-grid">
+        <div class="problem-card">
+            <h3>The Problem</h3>
+            <p>
+                Teams may know risk exists, but they still need to decide which locations need assessments, upgrades, or closer review first.
+            </p>
+            <ul>
+                <li>✓ Limited security budgets</li>
+                <li>✓ Too many locations to review manually</li>
+                <li>✓ Raw crime data is hard to compare</li>
+                <li>✓ Decisions often rely on spreadsheets or opinion</li>
+            </ul>
+        </div>
+
+        <div class="problem-card">
+            <h3>The Solution</h3>
+            <p>
+                RiskTerrain simplifies the first step by ranking locations, explaining key risk drivers, and generating CPTED-informed reports that support better decisions.
+            </p>
+            <ul>
+                <li>✓ Rank locations by priority</li>
+                <li>✓ Explain why a site is higher risk</li>
+                <li>✓ Support CPTED and security assessments</li>
+                <li>✓ Create reports stakeholders can understand</li>
+            </ul>
         </div>
     </div>
 </section>
@@ -570,6 +689,56 @@
 
 </section>
 
+<!-- DATA & METHODOLOGY -->
+
+<section class="data-section" id="data">
+
+<div class="data-inner">
+
+<div class="section-label">
+Data & Methodology
+</div>
+
+<h2>
+Built to be transparent,<br>
+not a black box.
+</h2>
+
+<p class="section-sub">
+RiskTerrain uses publicly available crime data and an explainable scoring process to support first-pass security screening.
+</p>
+
+<div class="data-grid">
+
+<div class="data-card">
+<h3>📍 Data Source</h3>
+
+<p>
+Currently powered by Toronto Police Service Open Data using Major Crime Indicator datasets including Assault, Robbery, Break & Enter, Auto Theft, and Theft Over $5000.
+</p>
+</div>
+
+<div class="data-card">
+<h3>📊 How RiskTerrain Scores Risk</h3>
+
+<p>
+Risk scores are generated using nearby crime incidents, crime category weighting, distance from the selected location, and comparison against other Toronto locations to create an explainable 0–100 Retail Safety Score.
+</p>
+</div>
+
+<div class="data-card">
+<h3>⚠ Current Scope</h3>
+
+<p>
+RiskTerrain is designed as a first-pass decision-support tool. It supports—not replaces—professional CPTED assessments, site visits, internal incident reporting, and security consultant judgment.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
 <!-- WHO IT'S FOR -->
 <section class="for-section" id="who">
     <div class="for-inner">
@@ -579,17 +748,17 @@
             <div class="card">
                 <div class="card-icon">🏪</div>
                 <h3>Retail Chains</h3>
-                <p>Score and compare risk across your entire store portfolio. Identify which locations need immediate security investment and which are performing well.</p>
+                <p>Prioritize security investments across your store portfolio. Quickly identify which locations should receive assessments, upgrades, or additional resources first.</p>
             </div>
             <div class="card">
                 <div class="card-icon">🏢</div>
                 <h3>Property Developers</h3>
-                <p>Understand the crime profile of any site before you build. Incorporate CPTED principles from day one rather than retrofitting security after problems emerge.</p>
+                <p>Evaluate site risk before development and identify environmental factors that can influence future security planning.</p>
             </div>
             <div class="card">
                 <div class="card-icon">🔒</div>
                 <h3>Security Consultants</h3>
-                <p>Augment your site assessments with data-driven risk scoring. Use RiskTerrain as a first-pass screening tool before committing to a full physical audit.</p>
+                <p>Use RiskTerrain as a first-pass screening tool to prioritize assessments, support recommendations, and communicate findings with clients.</p>
             </div>
         </div>
     </div>
